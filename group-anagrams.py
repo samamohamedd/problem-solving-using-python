@@ -1,6 +1,5 @@
 from collections import Counter
 
-
 class Solution:
     def groupAnagrams(self, strs):
         finalList = []
