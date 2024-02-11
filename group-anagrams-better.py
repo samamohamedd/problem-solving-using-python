@@ -1,6 +1,8 @@
+from collections import defaultdict
+
 class Solution:
     def groupAnagrams(self, strs):
-        answer = {} #mapping charcount to list of anagrams
+        answer = defaultdict(list) #mapping charcount to list of anagrams
 
         for word in strs:
             count = [0] * 26
