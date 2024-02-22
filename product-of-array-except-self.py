@@ -1,14 +1,4 @@
-class Solution:
-    def productExceptSelf(self, nums: list[int]) -> list[int]:
-        multiple = 1
-        answer = []
-        for i in range(len(nums)):
-            temp = nums
-            temp.pop(i)
-#            answer.append(int(np.prod(nums)))
-        return answer
-    
-class olution:
+class solution:
     def productExceptSelf(self, nums):
         multiple = 1
         answer = []
@@ -24,5 +14,5 @@ class olution:
                 answer.append(int(multiple/num))
         return answer
     
-s = olution()
+s = solution()
 print(s.productExceptSelf([-1,1,0,-3,3]))
