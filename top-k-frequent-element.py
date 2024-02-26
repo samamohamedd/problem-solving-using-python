@@ -1,20 +1,23 @@
+from collections import defaultdict
+
 class Solution:
     def topKFrequent(self, nums: list[int], k: int) -> list[int]:
-        count = {}
-        freq = [[] for i in range(len(nums)+1)]
+        freq = defaultdict(int)
 
-        for n in nums:
-            count[n] = 1 + count.get(n, 0)
-        for n, c in count.items(): #n occurs c number of times
-            freq[n].append(n) 
+        #store frequencies of numbers
+        for num in nums:
+            freq[num] +=1
 
-        result = []
-        for i in range(len(freq)-1, 0, -1):
-            for n in freq[i]:
-                result.append(n)
-                if len(result) == k:
-                    return result
-    
+        #converting the dict into list of key-value pairs
+        freq_list = list(freq.items())
+
+        #This lambda function extracts the second element (frequency) from each element in the list.
+        #Sort the list based on the frequency (value) in descending order
+        freq_list.sort(key= lambda x : x[1], reverse=True)
+        print(freq_list)
+        
+        result = [item[0] for item in freq_list[:k]]
+        return result
 # O(n)
 s = Solution()
 print(s.topKFrequent([1,1,1,2,2,3],2))
